@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        // Adicionando cor padrão do sistema
+        GreenCustom: "#3E665E",
       },
     },
   },
