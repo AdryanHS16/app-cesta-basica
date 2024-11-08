@@ -1,18 +1,7 @@
-import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { metadata } from "./metadata";
+import { roboto } from "@/app/_fonts/fonts";
 import "./globals.css";
-
-const roboto = Roboto({
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  display: "swap",
-});
-
-export const metadata: Metadata = {
-  title: "Cestas Sync",
-  description: "Sistema de gestão de Cestas Básicas",
-};
+import Navbar from "./_components/navbar";
 
 export default function RootLayout({
   children,
@@ -21,7 +10,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${roboto.className} font-sans`}>{children}</body>
+      <head>
+        <meta name="description" content={metadata.description} />
+        <title>{metadata.title}</title>
+      </head>
+      <body className={`${roboto.className} font-sans`}>
+        <Navbar />
+        <div className="flex-1">{children}</div>
+      </body>
     </html>
   );
 }

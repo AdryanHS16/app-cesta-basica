@@ -1,6 +1,7 @@
 import Image from "next/image";
 import img_login from "@/app/_assets/img_login.png";
 import logo from "@/app/_assets/logo.svg";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -16,7 +17,7 @@ export default function Home() {
 
         <div className="w-1/2 p-8 bg-white flex flex-col justify-center items-center">
           <div className="flex flex-col items-center mb-6">
-            <Image src={logo} alt="logo" className="mb-4" />
+            <Image src={logo} alt="logo" className="mb-5" />
             <h1 className="text-2xl font-semibold text-center"></h1>
           </div>
           <form className="space-y-6 w-full">
@@ -57,6 +58,10 @@ export default function Home() {
               Entrar
             </button>
           </form>
+
+          <Link href="/dashboard" className="mt-4 text-sm text-blue-500">
+            Ir para Dashboard
+          </Link>
         </div>
       </div>
     </main>
