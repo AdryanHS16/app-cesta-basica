@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="flex items-center justify-center h-screen bg-[#3E665E]">
-      <div className="container w-4/5 h-[80vh] flex shadow-md rounded-lg overflow-hidden">
+      <div className="container w-4/5 h-[85vh] flex shadow-md rounded-lg overflow-hidden">
         <div className="w-1/2 flex items-center justify-center">
           <Image
             src={img_login}
@@ -17,7 +17,13 @@ export default function Home() {
 
         <div className="w-1/2 p-8 bg-white flex flex-col justify-center items-center">
           <div className="flex flex-col items-center mb-6">
-            <Image src={logo} alt="logo" className="mb-5" />
+            <Image
+              src={logo}
+              alt="logo"
+              width={120}
+              height={120}
+              className="mb-10"
+            />
             <h1 className="text-2xl font-semibold text-center"></h1>
           </div>
           <form className="space-y-6 w-full">
