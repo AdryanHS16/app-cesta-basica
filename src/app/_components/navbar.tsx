@@ -99,13 +99,13 @@ export default function Navbar() {
               </li>
               <li>
                 <Link
-                  href="/cadastros/receivers"
+                  href="/cadastros/beneficiaries"
                   className={`block hover:text-green-500 ${isActive(
                     pathname,
-                    "receivers"
+                    "beneficiaries"
                   )}`}
                 >
-                  Recebedores
+                  Beneficiários
                 </Link>
               </li>
               <li>

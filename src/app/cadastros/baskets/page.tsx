@@ -1,7 +1,7 @@
 export default function baskets() {
   return (
-    <main>
-      <div>baskets</div>
+    <main className="pt-8 px-6">
+      <h1 className="text-[#3E665E] text-3xl font-semibold">Cestas</h1>
     </main>
   );
 }
