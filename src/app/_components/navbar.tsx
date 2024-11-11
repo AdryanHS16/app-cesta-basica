@@ -76,10 +76,10 @@ export default function Navbar() {
             <ul className="pl-6 space-y-2">
               <li>
                 <Link
-                  href="/cadastros/fornecedores"
+                  href="/cadastros/suppliers"
                   className={`block hover:text-green-500 ${isActive(
                     pathname,
-                    "fornecedores"
+                    "suppliers"
                   )}`}
                 >
                   Fornecedores
@@ -87,10 +87,10 @@ export default function Navbar() {
               </li>
               <li>
                 <Link
-                  href="/cadastros/recebedores"
+                  href="/cadastros/receivers"
                   className={`block hover:text-green-500 ${isActive(
                     pathname,
-                    "recebedores"
+                    "receivers"
                   )}`}
                 >
                   Recebedores
@@ -98,10 +98,10 @@ export default function Navbar() {
               </li>
               <li>
                 <Link
-                  href="/cadastros/cestas"
+                  href="/cadastros/baskets"
                   className={`block hover:text-green-500 ${isActive(
                     pathname,
-                    "cestas"
+                    "baskets"
                   )}`}
                 >
                   Cestas

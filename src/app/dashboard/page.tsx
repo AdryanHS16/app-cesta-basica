@@ -4,7 +4,7 @@ import { ResponsivePie } from "@nivo/pie";
 import { ResponsiveBar } from "@nivo/bar";
 import { useState } from "react";
 
-const cad_ativos = [
+const actives = [
   {
     id: "ativos",
     label: "ativos",
@@ -13,7 +13,7 @@ const cad_ativos = [
   },
 ];
 
-const data2 = [
+const renovations = [
   {
     id: "pendente",
     label: "Pendente",
@@ -28,7 +28,7 @@ const data2 = [
   },
 ];
 
-const data3 = [
+const distributed = [
   {
     id: "distribuido",
     label: "Distribuído",
@@ -155,17 +155,16 @@ export default function Dashboard() {
     <main className="pt-8 px-6">
       <h1 className="text-[#3E665E] text-3xl font-semibold">Dashboard</h1>
       <section className="grid grid-cols-1 md:grid-cols-3 gap-9 mt-8">
-        {/* Gráficos existentes */}
         <div className="bg-[#3E665E] rounded-lg p-4 flex flex-col items-center">
           <h2 className="text-white text-center mb-4">103 Cadastros Ativos</h2>
           <div className="w-36 h-36">
-            <PieChart data={cad_ativos} />
+            <PieChart data={actives} />
           </div>
         </div>
         <div className="bg-[#3E665E] rounded-lg p-4 flex flex-col items-center">
           <h2 className="text-white text-center mb-4">14 Renovação Pendente</h2>
           <div className="w-36 h-36">
-            <PieChart data={data2} />
+            <PieChart data={renovations} />
           </div>
         </div>
         <div className="bg-[#3E665E] rounded-lg p-4 flex flex-col items-center">
@@ -173,7 +172,7 @@ export default function Dashboard() {
             546 Cestas Distribuídas
           </h2>
           <div className="w-36 h-36">
-            <PieChart data={data3} />
+            <PieChart data={distributed} />
           </div>
         </div>
       </section>
