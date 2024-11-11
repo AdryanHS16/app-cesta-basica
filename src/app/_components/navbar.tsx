@@ -8,6 +8,7 @@ import { HiOutlineHome } from "react-icons/hi";
 import { FaRegListAlt } from "react-icons/fa";
 import { LuFileText } from "react-icons/lu";
 import { HiChevronDown, HiChevronUp } from "react-icons/hi"; // Importando ícones de seta
+import { BiDonateHeart } from "react-icons/bi";
 import { useState } from "react";
 
 export default function Navbar() {
@@ -42,6 +43,17 @@ export default function Navbar() {
             )}`}
           >
             <HiOutlineHome className="mr-2" /> <span>Início</span>
+          </Link>
+        </li>
+        <li className="flex items-center space-x-3">
+          <Link
+            href="/doacoes"
+            className={`flex items-center hover:text-green-500 ${isActive(
+              pathname,
+              "doacoes"
+            )}`}
+          >
+            <BiDonateHeart className="mr-2" /> <span>Doações</span>
           </Link>
         </li>
         <li className="flex items-center space-x-3">
