@@ -146,6 +146,19 @@ const BarChart = () => (
           },
         },
       }}
+      tooltip={(data) => (
+        <div
+          style={{
+            padding: "5px 10px",
+            background: "white",
+            border: "1px solid #ccc",
+            borderRadius: "4px",
+            color: "#333",
+          }}
+        >
+          {data.indexValue}: {data.value}
+        </div>
+      )}
     />
   </div>
 );
