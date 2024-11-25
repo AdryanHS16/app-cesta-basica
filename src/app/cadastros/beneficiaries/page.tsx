@@ -9,6 +9,7 @@ interface Beneficiary {
   cpf: string;
   address: string;
   contact: string;
+  date_of_birth: string; // Novo campo adicionado
   excluido: string;
 }
 
@@ -20,6 +21,7 @@ export default function Beneficiaries() {
     cpf: "",
     address: "",
     contact: "",
+    date_of_birth: "", // Novo campo adicionado
   });
   const [isLoading, setIsLoading] = useState(false);
   const [editingBeneficiaryId, setEditingBeneficiaryId] = useState<
@@ -34,6 +36,7 @@ export default function Beneficiaries() {
         cpf: beneficiary.cpf,
         address: beneficiary.address,
         contact: beneficiary.contact,
+        date_of_birth: beneficiary.date_of_birth, // Popula a data de nascimento no modal
       });
       setEditingBeneficiaryId(beneficiary.id);
     } else {
@@ -43,6 +46,7 @@ export default function Beneficiaries() {
         cpf: "",
         address: "",
         contact: "",
+        date_of_birth: "", // Reseta o campo no caso de novo registro
       });
     }
   };
@@ -108,6 +112,7 @@ export default function Beneficiaries() {
         cpf: "",
         address: "",
         contact: "",
+        date_of_birth: "", // Reseta o campo após o envio
       });
     } catch (error) {
       console.error(error);
@@ -179,6 +184,14 @@ export default function Beneficiaries() {
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-GreenCustom"
                 placeholder="Digite o contato"
               />
+              <label className="block text-sm mb-2">Data de Nascimento</label>
+              <input
+                type="date"
+                name="date_of_birth"
+                value={formData.date_of_birth}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-GreenCustom"
+              />
               <div className="flex justify-end">
                 <button
                   type="button"
@@ -211,6 +224,7 @@ export default function Beneficiaries() {
                 <th className="px-4 py-2 text-center">CPF</th>
                 <th className="px-4 py-2 text-center">Endereço</th>
                 <th className="px-4 py-2 text-center">Contato</th>
+                <th className="px-4 py-2 text-center">Data de Nascimento</th>
                 <th className="px-4 py-2 text-center">Opções</th>
               </tr>
             </thead>
@@ -236,6 +250,9 @@ export default function Beneficiaries() {
                         {beneficiary.contact}
                       </td>
                       <td className="px-4 py-2 text-center">
+                        {beneficiary.date_of_birth}
+                      </td>
+                      <td className="px-4 py-2 text-center">
                         <button
                           onClick={() => openModal(beneficiary)}
                           className="text-blue-500"
@@ -247,7 +264,7 @@ export default function Beneficiaries() {
                   ))
               ) : (
                 <tr>
-                  <td colSpan={6} className="text-center py-4">
+                  <td colSpan={7} className="text-center py-4">
                     Nenhum beneficiário encontrado
                   </td>
                 </tr>

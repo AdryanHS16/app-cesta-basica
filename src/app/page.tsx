@@ -1,9 +1,27 @@
+import { useState } from "react";
 import Image from "next/image";
 import img_login from "@/app/_assets/img_login.png";
 import logo from "@/app/_assets/logo.svg";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!login || !password) {
+      setError("Por favor, preencha todos os campos.");
+    } else {
+      setError(null); // Limpa o erro
+      router.push("/dashboard"); // Redireciona para o dashboard
+    }
+  };
+
   return (
     <main className="flex items-center justify-center h-screen bg-[#3E665E]">
       <div className="container w-4/5 h-[85vh] flex shadow-md rounded-lg overflow-hidden">
@@ -26,7 +44,8 @@ export default function Home() {
             />
             <h1 className="text-2xl font-semibold text-center"></h1>
           </div>
-          <form className="space-y-6 w-full">
+          <form onSubmit={handleSubmit} className="space-y-6 w-full">
+            {error && <div className="text-red-500 text-sm mb-4">{error}</div>}
             <div>
               <label
                 htmlFor="login"
@@ -37,9 +56,11 @@ export default function Home() {
               <input
                 type="text"
                 id="login"
+                value={login}
+                onChange={(e) => setLogin(e.target.value)}
                 placeholder="Digite seu login"
                 required
-                className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2  focus:ring-GreenCustom"
+                className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-GreenCustom"
               />
             </div>
             <div>
@@ -52,22 +73,20 @@ export default function Home() {
               <input
                 type="password"
                 id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Digite sua senha"
                 required
-                className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2  focus:ring-GreenCustom"
+                className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-GreenCustom"
               />
             </div>
             <button
               type="submit"
-              className="w-full p-2 text-white bg-[#3E665E] rounded-md hover:bg-[#365C52]"
+              className="p-3 text-white bg-[#3E665E] rounded-md hover:bg-[#365C52]"
             >
               Entrar
             </button>
           </form>
-
-          <Link href="/dashboard" className="mt-4 text-sm text-blue-500">
-            Ir para Dashboard
-          </Link>
         </div>
       </div>
     </main>

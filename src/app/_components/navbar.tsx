@@ -56,17 +56,6 @@ export default function Navbar() {
             <BiDonateHeart className="mr-2" /> <span>Doações</span>
           </Link>
         </li>
-        <li className="flex items-center space-x-3">
-          <Link
-            href="/registros"
-            className={`flex items-center hover:text-green-500 ${isActive(
-              pathname,
-              "registros"
-            )}`}
-          >
-            <FaRegListAlt className="mr-2" /> <span>Registros</span>
-          </Link>
-        </li>
         <li className="flex flex-col space-y-2">
           <button
             onClick={() => setIsCadastrosOpen(!isCadastrosOpen)}
